@@ -1,9 +1,3 @@
-XSLT software
-
-Weird thing
-
-Changed on TwatHub
-
-Changed again on my PC
+Repositoery created for collaborative working between jonathan Fine, Andy Parker and Malcolm Jarrett
 
 
