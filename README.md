@@ -10,4 +10,6 @@ Some notes on starting. 21st April 2020.
 
 3. There's also my attempt to take a dump of Joe Lanman's code form the Heroku site. Might be a useful way forward?
 
+4. The power point mangler code is what Jane and I used to test doit.py. It allowed Jane to drop files in a Google Drive folder. The file would then be processed and a report produced.
+
 
