@@ -8,4 +8,6 @@ Some notes on starting. 21st April 2020.
 
 2. There is a simple shell script showing how to invoke doit.py, doit-2020-02-12 that illustrates how to use doit.py 
 
+3. There's also my attempt to take a dump of Joe Lanman's code form the Heroku site. Might be a useful way forward?
+
 
