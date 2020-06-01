@@ -1,0 +1,15 @@
+/*
+* Custom modules
+*/
+
+/* Forms */
+.form-container {
+    padding: 1em;
+    background: rgba(0,0,0,.05);
+}
+
+.slide-item {
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #cdcecf;
+}
