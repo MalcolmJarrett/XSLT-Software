@@ -13,3 +13,27 @@
     margin-bottom: 1em;
     border: 1px solid #cdcecf;
 }
+
+.slide-item h5 {
+    border-bottom: 1px solid #cdcecf;
+    padding-bottom: 4px;
+}
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5pt;
+}
+
+span.bold {
+    font-weight: bold;
+
+}
+span.italic {
+    font-style: italic;
+}
