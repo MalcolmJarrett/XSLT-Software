@@ -122,16 +122,19 @@ def results(filename):
                     xml_combined = re.sub('<\?xml version=\"1.0\"[^>]+>', '', xml_combined)
                     xml_combined = xml_combined + "\n</file>"
 
-    # remove the uploaded file from the tmp dir
-    # os.remove(fileSubmitted)
     xml_combined = xml_combined + "</files>"
 
     # reading from string instead of file to parse
     xml_new = etree.fromstring(xml_combined)
 
     result = transform(xml_new)
+    newXMLLoc = "changed/" + str(filename) + ".xml"
 
-    newXML = open("changed/tmp.xml", "w")
     # Creating new files and writing to them the contents in the fors.
+    newXML = open(newXMLLoc, "w")
     newXML.write(str(result))
-    return render_template("results.html",  result = result, fileSubmitted = fileSubmitted)
+
+    # remove the uploaded file from the tmp dir
+    os.remove(fileSubmitted)
+    os.remove(newXMLLoc)
+    return render_template("results.html",  result = result, filename = filename)
