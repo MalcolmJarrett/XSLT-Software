@@ -20,40 +20,26 @@
 
     <xsl:template match="/">
 
-        <p>Total slides: <xsl:value-of select="count($slides)"/></p>
+        <p class="lead">Total slides: <xsl:value-of select="count($slides)"/></p>
 
 
         <xsl:for-each select="$slides">
-
             <!-- sorting via num attribute (added via python script) -->
             <xsl:sort select="@num" data-type="number"/>
-
             <div class="slide-item">
-                <!-- container div for each slide -->
-                <h3>Slide <xsl:value-of select="position()"/>
-                    <!-- displays the slide number -->
-                </h3>
-
-
+                <h1 class="h4">Slide <xsl:value-of select="position()"/></h1>
                 <!-- initial template for a slide -->
                 <xsl:apply-templates select=".//p:spTree"/>
-
-
             </div>
         </xsl:for-each>
     </xsl:template>
 
-
-
     <xsl:template match="p:spTree">
-        <!-- only relecant nodes applied here -->
+        <!-- only relevant nodes applied here -->
         <xsl:apply-templates select="p:sp | p:graphicFrame | p:pic"/>
     </xsl:template>
 
-
-
     <xsl:template match="p:sp">
-
         <!-- Shape (e.g. rectangle for the text)
         - if a shape is created on a slide, the informations occur on the slide
         - if the shape comes from the slide master, it needs to read the referenced slide layout
@@ -217,9 +203,7 @@
 
     <!-- paragraph -->
     <xsl:template match="a:p">
-        <p>
-            <xsl:apply-templates/>
-        </p>
+        <xsl:apply-templates/>
     </xsl:template>
 
     <!-- soft break -->
@@ -269,8 +253,6 @@
         </span>
     </xsl:template>
 
-
-
     <!-- currently only table elements are allowed here
     - maybe also other graphic elements are possible
     -->
@@ -280,7 +262,7 @@
 
     <!-- tables -->
     <xsl:template match="a:tbl">
-        <table>
+        <table class="table">
             <xsl:apply-templates select="a:tr"/>
         </table>
     </xsl:template>
@@ -323,15 +305,14 @@
 
 
         <!-- image filename and description -->
-        <div class="image">
-            <p>
-                <b>PIC:</b>
+        <div class="image-object">
+            <p><strong>Image: </strong>
                 <xsl:text> </xsl:text>
                 <xsl:value-of
                     select="$slide.rels.node//*[name() = 'Relationship'][@Id = $id]/@Target"/>
-                <xsl:text>, </xsl:text>
-                <b>DESC: </b>
-                <xsl:value-of select="p:nvPicPr/p:cNvPr/@descr"/>
+                <br />
+                <span class="text-muted"><strong>Description: </strong>
+                <xsl:value-of select="p:nvPicPr/p:cNvPr/@descr"/></span>
             </p>
         </div>
 

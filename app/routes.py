@@ -136,4 +136,5 @@ def results(filename):
 
     # remove the uploaded file from the tmp dir
     os.remove(fileSubmitted)
-    return render_template("results.html",  result = result, fileSubmitted = fileSubmitted)
+    os.remove(newXMLLoc)
+    return render_template("results.html",  result = result, filename = filename)

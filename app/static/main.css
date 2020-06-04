@@ -2,6 +2,10 @@
 * Custom modules
 */
 
+[role="main"] {
+    margin-top: 30px;
+}
+
 /* Forms */
 .form-container {
     padding: 1em;
@@ -87,4 +91,9 @@ span.bold {
 span.italic {
     font-style: italic;
 
+}
+
+.image-object {
+    border-top: 1px solid #ddd;
+    padding-top: 0.2em;
 }

@@ -1,14 +1,9 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
+<article role="main">
+    <h1>{{filename}}</h1>
 
-<div class="container">
-    <h1>Scraped: {{fileSubmitted}}</h1>
-
-    <div class="results-container">
-
-        {{ result | safe }}
-
-    </div>
-</div>
+    {{ result | safe }}
+</article>
 {% endblock %}
