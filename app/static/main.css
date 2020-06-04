@@ -37,3 +37,54 @@ span.bold {
 span.italic {
     font-style: italic;
 }
+
+/* From our tables and slide results */
+.ctrTitle,
+.title {
+    font-size: 20pt;
+    font-weight: bold;
+}
+.subTitle {
+    font-size: 16pt;
+    font-weight: bold;
+}
+ul.lvl0 {
+
+}
+ul.lvl1 {
+    margin-left: 10pt;
+}
+ul.lvl2 {
+    margin-left: 20pt;
+}
+ul.lvl3 {
+    margin-left: 30pt;
+}
+ul.lvl4 {
+    margin-left: 40pt;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 0.5em;
+}
+.tableRowFirst {
+    background-color: #e48a53;
+    color: #FFFFFF
+
+}
+span.bold {
+    font-weight: bold;
+
+}
+span.italic {
+    font-style: italic;
+
+}
