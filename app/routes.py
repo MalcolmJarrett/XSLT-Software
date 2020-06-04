@@ -107,8 +107,11 @@ def results(filename):
             # get all xml files we need
             if "ppt/slideLayouts" in name or "ppt/slides" in name:
 
+                # for sorting the slides in the correct order, the number of each slide is saved in a num attribute
+                num = re.findall(r'\d+', name)
+
                 # for each xml file we create a new file element with the relative path
-                xml_combined = xml_combined + "\n<file name=\"" + name + "\">"
+                xml_combined = xml_combined + "\n<file name=\"" + name + "\" num=\"" + str(num[0]) + "\">"
                 with pptx.open(name) as f:
                     data = f.read()
                     data_no_bom = data.decode("utf-8-sig") # remove BOM of each file
@@ -119,16 +122,18 @@ def results(filename):
                     xml_combined = re.sub('<\?xml version=\"1.0\"[^>]+>', '', xml_combined)
                     xml_combined = xml_combined + "\n</file>"
 
-    # remove the uploaded file from the tmp dir
-    # os.remove(fileSubmitted)
     xml_combined = xml_combined + "</files>"
 
     # reading from string instead of file to parse
     xml_new = etree.fromstring(xml_combined)
 
     result = transform(xml_new)
+    newXMLLoc = "changed/" + str(filename) + "xml"
 
-    newXML = open("changed/tmp.xml", "w")
     # Creating new files and writing to them the contents in the fors.
+    newXML = open(newXMLLoc, "w")
     newXML.write(str(result))
+
+    # remove the uploaded file from the tmp dir
+    os.remove(fileSubmitted)
     return render_template("results.html",  result = result, fileSubmitted = fileSubmitted)
