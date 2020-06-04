@@ -24,7 +24,10 @@
 
 
         <xsl:for-each select="$slides">
-            <xsl:sort select="@name"/>
+
+            <!-- sorting via num attribute (added via python script) -->
+            <xsl:sort select="@num" data-type="number"/>
+
             <div class="slide-item">
                 <!-- container div for each slide -->
                 <h3>Slide <xsl:value-of select="position()"/>

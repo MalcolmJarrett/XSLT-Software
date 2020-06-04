@@ -107,8 +107,11 @@ def results(filename):
             # get all xml files we need
             if "ppt/slideLayouts" in name or "ppt/slides" in name:
 
+                # for sorting the slides in the correct order, the number of each slide is saved in a num attribute
+                num = re.findall(r'\d+', name)
+
                 # for each xml file we create a new file element with the relative path
-                xml_combined = xml_combined + "\n<file name=\"" + name + "\">"
+                xml_combined = xml_combined + "\n<file name=\"" + name + "\" num=\"" + str(num[0]) + "\">"
                 with pptx.open(name) as f:
                     data = f.read()
                     data_no_bom = data.decode("utf-8-sig") # remove BOM of each file
