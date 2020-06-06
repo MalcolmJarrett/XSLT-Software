@@ -26,24 +26,20 @@ def make_transform(name, parser):
         transform = etree.XSLT(xslt_root)
         return transform
 
+# upload form function
+def allowed_file(filename):
+    return '.' in filename and \
+            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 # index for site function
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template("index.html")
 
-# upload form function
-def allowed_file(filename):
-    return '.' in filename and \
-            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-# open the uploader page
-@app.route('/upload')
-def upload_form():
-    return render_template('upload.html')
-
 # when the page has been submitted
-@app.route('/upload', methods=['GET', 'POST'])
+# @app.route('/upload', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # Check if the post request has a file part
@@ -58,7 +54,6 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('File uploaded')
 
     # This waits until it can see the file exists in the temp folder before returning the results.
     while not os.path.exists(UPLOAD_FOLDER + filename):

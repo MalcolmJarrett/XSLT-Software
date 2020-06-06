@@ -1,0 +1,9 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<article role="main">
+    <h1>{{filename}}</h1>
+
+    {{ result | safe }}
+</article>
+{% endblock %}
