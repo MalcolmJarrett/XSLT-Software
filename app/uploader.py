@@ -4,7 +4,7 @@ uploader = Blueprint("uploader", __name__, static_folder="static", template_fold
 
 @uploader.route("/uploader")
 def uploader():
-    return render_template("/upload.html")
+    return render_template("upload.html")
 # '''
 # This is the uploader function for the app.
 # '''
