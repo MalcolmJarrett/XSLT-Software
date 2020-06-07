@@ -123,7 +123,7 @@ def results(filename):
     xml_new = etree.fromstring(xml_combined)
 
     result = transform(xml_new)
-    newXMLLoc = "changed/" + str(filename) + ".xml"
+    newXMLLoc = UPLOAD_FOLDER + str(filename) + ".xml"
 
     # Creating new files and writing to them the contents in the fors.
     newXML = open(newXMLLoc, "w")
