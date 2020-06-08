@@ -1,40 +1,25 @@
-import os
+import os, config
 from http import cookies
+from flask import Flask, render_template, flash, request, redirect, url_for, Blueprint
 
-from flask import Flask
-from flask import render_template, flash, request, redirect, url_for, Blueprint
-
-def create_app(test_config=None):
+def create_app():
     # Create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-    )
-    UPLOAD_FOLDER = "/tmp/"
-    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+    app = Flask(__name__)
 
-    if test_config is None:
-        #Load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        #Load the test config if passed in
-        app.config.from_mapping(test_config)
-
-    #ensure instance folder
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
+    # This config provides settings and variables that should be accessible throughout the app.
+    app.config.from_pyfile('config.py', silent=True)
 
     # Launch the app with the homepage
     @app.route('/')
     def index():
         return render_template("index.html")
 
+    # Blueprints for where the apps functions live.
     from . import forms
     app.register_blueprint(forms.bp)
 
     from . import pptxTranslator
     app.register_blueprint(pptxTranslator.bp)
 
+    # Start the app
     return app

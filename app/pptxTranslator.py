@@ -19,7 +19,7 @@ def make_transform(name, parser):
 
         transform = etree.XSLT(xslt_root)
         return transform
-        
+
 # results page showing the output from the uploaded file
 @bp.route('/results/<filename>', methods=['GET', 'POST'])
 def results(filename):

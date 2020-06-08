@@ -1,20 +1,28 @@
-# Powerpoint Content Scraper
+# PPTX Accessibility Checker
 
-## About
+A tool for checking your powerpoint presentations for accessibility issues.
+
+
+# Table of contents
+
+* [Introduction](#introduction)
+* [technologies](#technologies)
+*
+
+# Introduction
 
 This app is intended to support creating accessible presentations with Microsoft Powerpoint.
 When a presentation is uploaded it returns an audit of the presentation that shows you what formatting is being used and whether your images have a description (also used as alt tag).
 
 This project is open source, you have permission to fork and rework in your own way. If you do, please share back with the community.
 
-### Demo (to come)
-
-### Dependancies
+## Technologies
 
 This app uses:
 - Python 3+
 - Flask
 - Virtualenv
+- A number of Python and Flask modules (see requirements.txt)
 
 As long as you have Python 3 installed, the rest takes care of itself and is packaged into `.flaskenv`.
 
@@ -57,6 +65,10 @@ With your virtual environment running, you should install the requirements from 
 This a webapp using Flask to run Pyhton code on the web.
 The dependancies for Flask will all be loaded the first time you run virtualenv.
 
-To start the Flask service type `flask run`.
+To utilise the .flaskenv file that sets up basic app environment variables, like using the debug mode type:
+`python -m flask run`
+
+To start the Flask service without using the .flaskenv type:
+`flask run`
 
 To stop flask from terminal (on Mac) hold down `ctrl+c`

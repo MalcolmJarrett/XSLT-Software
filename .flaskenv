@@ -1,3 +1,3 @@
+#.flaskenv
 FLASK_ENV=development
-FLASK_APP=buggy
-FLASK_DEBUG=1
+FLASK_APP=app
