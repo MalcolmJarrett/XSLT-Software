@@ -1,5 +1,6 @@
 # This is where all the configuration goes to ensure it is outside the app and safe. Right now it just has a secret key which is needed to check the security of the file type being uploaded.
 import os
+import os.path
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'youratsayasaurus'
