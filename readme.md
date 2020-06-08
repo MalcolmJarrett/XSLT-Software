@@ -6,8 +6,9 @@ A tool for checking your powerpoint presentations for accessibility issues.
 # Table of contents
 
 * [Introduction](#introduction)
-* [technologies](#technologies)
-*
+* [Technologies](#technologies)
+* [Setting up]{#setting-up}
+* [Features]{#features}
 
 # Introduction
 
@@ -72,3 +73,9 @@ To start the Flask service without using the .flaskenv type:
 `flask run`
 
 To stop flask from terminal (on Mac) hold down `ctrl+c`
+
+# Features
+
+You can upload any powerpoint file created post 2007 with the extension `.pptx` and the app will return the slides in stripped down form and highlight your titles, text, lists and images so you can check the semantic order, and whether your images have included descriptions.
+
+Now you can go back to your presentation and update the missing attributes and reorder them so that screen readers will be able to deliver the presentation as you intended.
