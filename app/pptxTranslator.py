@@ -58,7 +58,7 @@ def results(filename):
         """
         for name in pptx.namelist():
             # get all xml files we need
-            if "ppt/slideLayouts" in name or "ppt/slides" in name:
+            if "ppt/slideLayouts" in name or "ppt/slides" in name or "ppt/slideMasters" in name:
 
                 # for sorting the slides in the correct order, the number of each slide is saved in a num attribute
                 num = re.findall(r'\d+', name)

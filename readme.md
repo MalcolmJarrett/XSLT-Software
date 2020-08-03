@@ -74,6 +74,10 @@ To start the Flask service without using the .flaskenv type:
 
 To stop flask from terminal (on Mac) hold down `ctrl+c`
 
+## App Tools
+In `pptx.xsl` you can activate a debug mode for the XSL template.
+`param name="debug"` to 1 to activate.
+
 # Features
 
 You can upload any powerpoint file created post 2007 with the extension `.pptx` and the app will return the slides in stripped down form and highlight your titles, text, lists and images so you can check the semantic order, and whether your images have included descriptions.
