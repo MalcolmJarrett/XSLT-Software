@@ -25,7 +25,6 @@ def make_transform(name, parser):
 def results(filename):
     filename = filename
     fileSubmitted = UPLOAD_FOLDER + filename
-    processDest = "processing/" + filename
 
     """
     ZipFile is a python tool that allows you to work with zip files.

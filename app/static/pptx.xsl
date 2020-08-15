@@ -27,7 +27,6 @@
 
     <!-- here is the start of the formatter -->
     <xsl:template match="/">
-
         <p class="lead">Total slides: <xsl:value-of select="count($slides)"/></p>
 
         <xsl:for-each select="$slides">
@@ -94,12 +93,12 @@
         </xsl:variable>
 
 
-            <!-- class="{$shape.type} -->
+            <!-- this is a debugger. If you want to find out what something is, you can enable debug and it will get highlighted in the slide. -->
             <xsl:if test="$debug = 1">
-                <p style="font-size:8pt;color:red;font-weight:bold;">
-                    Shape type: <span style="font-weight:normal"><xsl:value-of select="$isShapeType"/></span>
+                <p class="shape-description">
+                    <strong>Shape type: </strong><xsl:value-of select="$isShapeType"/>
                     <br/>
-                    Shape index: <span style="font-weight:normal"><xsl:value-of select="$shape.index"/></span>
+                    <strong>Shape index: </strong><xsl:value-of select="$shape.index"/>
                 </p>
             </xsl:if>
             <xsl:apply-templates>
@@ -123,6 +122,7 @@
                     <xsl:text disable-output-escaping="yes">&lt;ul></xsl:text>
                 </xsl:if>
 
+                <!-- curent list level: if there is no @lvl attribute, but's in a shape with bullets, set it to 0 - all higer levels have numbers -->
                 <xsl:variable name="current.list.level">
                     <xsl:choose>
                         <xsl:when test="not(a:pPr/@lvl)">0</xsl:when>
@@ -152,12 +152,10 @@
                     </xsl:choose>
                 </xsl:variable>
 
-                <!-- Pyton uses the XSLT 1.0 processor
-                     - because of that, it's not possible to use the xsl:for-each-group - syntax
-                     - via grouping it's easier possible to create a deep structure from a flat one
-                     - here we check each list entry (always on the same structure level)
-                      - the difference is the lvl-attribute
-                      - writing all necessary <ul><li> elements with xsl:text -->
+<!--
+Pyton uses the XSLT 1.0 processor. Because of that, it's not possible to use the xsl:for-each-group - syntax
+via grouping it's easier possible to create a deep structure from a flat one here we check each list entry (always on the same structure level) the difference is the lvl-attribute writing all necessary <ul><li> elements with xsl:text
+-->
 
                 <xsl:text disable-output-escaping="yes">&lt;li></xsl:text>
 
@@ -209,17 +207,17 @@
         <!-- information from slide layout or slide master -->
         <xsl:variable name="shape.index" select="ancestor::p:sp//p:ph/@idx"/>
 
+        <!-- pick up when somethins has been made bold -->
         <xsl:variable name="font-weight">
             <xsl:choose>
                 <xsl:when test="a:rPr/@b = 1">bold</xsl:when>
                 <xsl:when
-                    test="$slide.layout.node//p:sp[.//p:nvPr//p:ph/@idx = $shape.index]//p:txBody//a:lvl1pPr/a:defRPr/@b != ''"
-                    >bold</xsl:when>
+                    test="$slide.layout.node//p:sp[.//p:nvPr//p:ph/@idx = $shape.index]//p:txBody//a:lvl1pPr/a:defRPr/@b != ''">bold</xsl:when>
                 <xsl:otherwise>normal</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
 
-
+        <!-- pick up when somethins has been made italic -->
         <xsl:variable name="font-style">
             <xsl:choose>
                 <xsl:when test="a:rPr/@i = 1">italic</xsl:when>
@@ -301,7 +299,6 @@
         <!-- image filename and description -->
         <div class="image-object">
             <p><strong>Image: </strong>
-                <xsl:text> </xsl:text>
                 <xsl:value-of
                     select="$slide.rels.node//*[name() = 'Relationship'][@Id = $id]/@Target"/>
                 <br />
