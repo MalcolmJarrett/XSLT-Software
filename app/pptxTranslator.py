@@ -25,6 +25,7 @@ def make_transform(name, parser):
 def results(filename):
     filename = filename
     fileSubmitted = UPLOAD_FOLDER + filename
+    processDest = "processing/" + filename
 
     """
     ZipFile is a python tool that allows you to work with zip files.
@@ -35,12 +36,6 @@ def results(filename):
 
     # xml_combined is used to concat the content of all needed xml files
     xml_combined = "<?xml version='1.0'?>\n<files>\n"
-
-    # not needed anymore
-
-    # save the whole zip to the processing directory
-    # with ZipFile(fileSubmitted, 'r') as zipObj:
-    #     zipObj.extractall(processDest)
 
     with prs as pptx:
         # The parser we are going to use to read this .pptx.
