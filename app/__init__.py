@@ -7,7 +7,7 @@ from config import Config
 app = Flask(__name__)
 
     # # This config provides settings and variables that should be accessible throughout the app.
-    # app.config.from_pyfile('config.py', silent=True)
+app.config.from_pyfile('config.py', silent=True)
 
 # Launch the app with the homepage
 @app.route('/')

@@ -3,5 +3,5 @@ import os
 
 class Config(object):
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'youratsayasaurus'
-    # UPLOAD_FOLDER = UPLOAD_FOLDER
+    # UPLOAD_FOLDER = "/tmp/"
     # MAX_CONTENT_LENGTH = 16 * 1024 * 1024

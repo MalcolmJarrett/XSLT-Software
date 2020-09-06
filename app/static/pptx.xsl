@@ -247,7 +247,7 @@ via grouping it's easier possible to create a deep structure from a flat one her
     </xsl:template>
 
     <xsl:template match="a:br">
-        <xsl:text disable-output-escaping="yes"><br/></xsl:text>
+        <xsl:text disable-output-escaping="yes">&lt;br /></xsl:text>
     </xsl:template>
 
     <xsl:template match="p:graphicFrame">
