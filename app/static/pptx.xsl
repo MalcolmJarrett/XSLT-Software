@@ -107,6 +107,13 @@
             </xsl:apply-templates>
     </xsl:template>
 
+    <!-- text-style: caption -->
+    <xsl:template match="p:sp[.//a:t]">
+        <xsl:param name="shape.type"/>
+        <xsl:variable name="lvl" select="a:pPr/@lvl"/>
+        <p><xsl:value-of select="."/></p>
+    </xsl:template>
+
     <xsl:template match="p:txBody/a:p[a:r]">
         <xsl:param name="shape.type"/>
         <xsl:variable name="lvl" select="a:pPr/@lvl"/>
