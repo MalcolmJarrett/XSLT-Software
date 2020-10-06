@@ -4,7 +4,7 @@
     xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
     xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"
     xmlns:z="http://schemas.openxmlformats.org/package/2006/relationships"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="a r p z xs">
 
     <xsl:output method="html" indent="yes" version="5.0"/>
     <xsl:param name="debug">0</xsl:param>
