@@ -33,8 +33,8 @@
         <xsl:for-each select="$slides">
             <!-- sorting via num attribute (added via python script) -->
             <xsl:sort select="@num" data-type="number"/>
+            <!-- container div for each slide -->
             <div class="slide-item">
-                <!-- container div for each slide -->
                 <h1 class="h4">Slide <xsl:value-of select="position()"/></h1>
                 <!-- initial template for a slide -->
                 <xsl:apply-templates select=".//p:sp | .//p:pic | .//p:graphicFrame"/>
@@ -256,7 +256,7 @@
     </xsl:template>
 
     <xsl:template match="a:br">
-        <br/>
+        <br />
     </xsl:template>
 
     <xsl:template match="p:graphicFrame">
